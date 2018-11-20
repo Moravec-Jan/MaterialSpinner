@@ -10,7 +10,7 @@
 
     <dimen name="right_left_spinner_padding">0dp</dimen>
 
-    <dimen name="label_text_size">18sp</dimen>
+    <dimen name="label_text_size">12sp</dimen>
 
     <dimen name="min_content_height">20dp</dimen>
 
