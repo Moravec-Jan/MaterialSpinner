@@ -23,9 +23,12 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.view.animation.LinearInterpolator;
 import android.widget.AdapterView;
+import android.widget.ArrayAdapter;
 import android.widget.BaseAdapter;
 import android.widget.SpinnerAdapter;
 import android.widget.TextView;
+
+import java.util.List;
 
 
 public class MaterialSpinner extends AppCompatSpinner implements ValueAnimator.AnimatorUpdateListener {
@@ -108,6 +111,20 @@ public class MaterialSpinner extends AppCompatSpinner implements ValueAnimator.A
     private Integer mDropDownHintView;
     private Integer mHintView;
 
+    //region factory methods
+    public static <T> ArrayAdapter<T> createDefaultSpinner(Context context, T[] items) {
+        ArrayAdapter<T> adapter = new ArrayAdapter<>(context, R.layout.text_view_without_padding, items);
+        adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
+        return adapter;
+    }
+
+    public static <T> ArrayAdapter<T> createDefaultSpinner(Context context, List<T> items) {
+        ArrayAdapter<T> adapter = new ArrayAdapter<>(context, R.layout.text_view_without_padding, items);
+        adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
+        return adapter;
+    }
+    //endregion
+
     /*
      * **********************************************************************************
      * CONSTRUCTORS
@@ -153,7 +170,7 @@ public class MaterialSpinner extends AppCompatSpinner implements ValueAnimator.A
 
     private void initAttributes(Context context, AttributeSet attrs) {
 
-        TypedArray defaultArray = context.obtainStyledAttributes(new int[]{R.attr.colorControlNormal, R.attr.colorAccent,android.R.attr.textColorHint});
+        TypedArray defaultArray = context.obtainStyledAttributes(new int[]{R.attr.colorControlNormal, R.attr.colorAccent, android.R.attr.textColorHint});
         int defaultBaseColor = defaultArray.getColor(0, 0);
         int defaultHintColor = defaultArray.getColor(2, 0);
         int defaultHighlightColor = defaultArray.getColor(1, 0);
@@ -182,7 +199,7 @@ public class MaterialSpinner extends AppCompatSpinner implements ValueAnimator.A
         enableFloatingLabel = array.getBoolean(R.styleable.MaterialSpinner_ms_enableFloatingLabel, true);
         alwaysShowFloatingLabel = array.getBoolean(R.styleable.MaterialSpinner_ms_alwaysShowFloatingLabel, true);
         isRtl = array.getBoolean(R.styleable.MaterialSpinner_ms_isRtl, false);
-        mHintView = array.getResourceId(R.styleable.MaterialSpinner_ms_hintView, android.R.layout.simple_spinner_item);
+        mHintView = array.getResourceId(R.styleable.MaterialSpinner_ms_hintView, R.layout.text_view_without_padding);
         mDropDownHintView = array.getResourceId(R.styleable.MaterialSpinner_ms_dropDownHintView, android.R.layout.simple_spinner_dropdown_item);
 
         String typefacePath = array.getString(R.styleable.MaterialSpinner_ms_typeface);
