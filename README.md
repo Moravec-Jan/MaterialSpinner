@@ -5,6 +5,10 @@ Spinner with Material Design
 
 Slightly modified version of original [ganfra/MaterialSpinner](https://github.com/ganfra/MaterialSpinner)
 
+
+## Screenshot
+![spinner](https://user-images.githubusercontent.com/36644697/48788083-5d806c80-ecea-11e8-96a0-f84be9ff14a3.PNG)
+
 ## Gradle Dependency
 Step 1. Add the JitPack repository to your build file
 
