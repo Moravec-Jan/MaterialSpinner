@@ -195,7 +195,7 @@ public class MaterialSpinner extends AppCompatSpinner implements ValueAnimator.A
         thicknessError = array.getDimension(R.styleable.MaterialSpinner_ms_thickness_error, 2);
         arrowColor = array.getColor(R.styleable.MaterialSpinner_ms_arrowColor, baseColor);
         arrowSize = array.getDimension(R.styleable.MaterialSpinner_ms_arrowSize, dpToPx(DEFAULT_ARROW_WIDTH_DP));
-        enableErrorLabel = array.getBoolean(R.styleable.MaterialSpinner_ms_enableErrorLabel, true);
+        enableErrorLabel = array.getBoolean(R.styleable.MaterialSpinner_ms_enableErrorLabel, false);
         enableFloatingLabel = array.getBoolean(R.styleable.MaterialSpinner_ms_enableFloatingLabel, true);
         alwaysShowFloatingLabel = array.getBoolean(R.styleable.MaterialSpinner_ms_alwaysShowFloatingLabel, true);
         isRtl = array.getBoolean(R.styleable.MaterialSpinner_ms_isRtl, false);
