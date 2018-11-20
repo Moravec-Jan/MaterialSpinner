@@ -23,12 +23,12 @@ Add it in your root build.gradle at the end of repositories:
 Step 2. Add the dependency
 
 	dependencies {
-	        implementation 'com.github.Moravec-Jan:MaterialSpinner:2.0.4'
+	        implementation 'com.github.Moravec-Jan:MaterialSpinner:2.0.5'
 	}
 
 If you use other libraries requiring appcompat-v7 like [MaterialEditText](https://github.com/rengwuxian/MaterialEditText/) make sure to exclude them if you have issue at compile time :
 ```groovy
-implementation ('com.github.Moravec-Jan:MaterialSpinner:2.0.4'){
+implementation ('com.github.Moravec-Jan:MaterialSpinner:2.0.5'){
         exclude group: 'com.android.support', module: 'appcompat-v7'
 }
 ```
