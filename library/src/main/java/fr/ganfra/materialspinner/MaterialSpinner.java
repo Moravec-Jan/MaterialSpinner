@@ -180,7 +180,7 @@ public class MaterialSpinner extends AppCompatSpinner implements ValueAnimator.A
         arrowSize = array.getDimension(R.styleable.MaterialSpinner_ms_arrowSize, dpToPx(DEFAULT_ARROW_WIDTH_DP));
         enableErrorLabel = array.getBoolean(R.styleable.MaterialSpinner_ms_enableErrorLabel, true);
         enableFloatingLabel = array.getBoolean(R.styleable.MaterialSpinner_ms_enableFloatingLabel, true);
-        alwaysShowFloatingLabel = array.getBoolean(R.styleable.MaterialSpinner_ms_alwaysShowFloatingLabel, false);
+        alwaysShowFloatingLabel = array.getBoolean(R.styleable.MaterialSpinner_ms_alwaysShowFloatingLabel, true);
         isRtl = array.getBoolean(R.styleable.MaterialSpinner_ms_isRtl, false);
         mHintView = array.getResourceId(R.styleable.MaterialSpinner_ms_hintView, android.R.layout.simple_spinner_item);
         mDropDownHintView = array.getResourceId(R.styleable.MaterialSpinner_ms_dropDownHintView, android.R.layout.simple_spinner_dropdown_item);
