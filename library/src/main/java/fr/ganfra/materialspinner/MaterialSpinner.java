@@ -109,10 +109,10 @@ public class MaterialSpinner extends AppCompatSpinner implements ValueAnimator.A
     private Integer mHintView;
 
     /*
-    * **********************************************************************************
-    * CONSTRUCTORS
-    * **********************************************************************************
-    */
+     * **********************************************************************************
+     * CONSTRUCTORS
+     * **********************************************************************************
+     */
 
     public MaterialSpinner(Context context) {
         super(context);
@@ -132,10 +132,10 @@ public class MaterialSpinner extends AppCompatSpinner implements ValueAnimator.A
 
 
     /*
-    * **********************************************************************************
-    * INITIALISATION METHODS
-    * **********************************************************************************
-    */
+     * **********************************************************************************
+     * INITIALISATION METHODS
+     * **********************************************************************************
+     */
 
     private void init(Context context, AttributeSet attrs) {
 
@@ -240,7 +240,7 @@ public class MaterialSpinner extends AppCompatSpinner implements ValueAnimator.A
     }
 
     public Object getSelectedItem() {
-        return super.getItemAtPosition(getSelectedItemPosition()-1);
+        return super.getItemAtPosition(getSelectedItemPosition() - 1);
     }
 
     private void initPadding() {
@@ -280,10 +280,10 @@ public class MaterialSpinner extends AppCompatSpinner implements ValueAnimator.A
     }
 
     /*
-    * **********************************************************************************
-    * ANIMATION METHODS
-    * **********************************************************************************
-    */
+     * **********************************************************************************
+     * ANIMATION METHODS
+     * **********************************************************************************
+     */
 
     private void initFloatingLabelAnimator() {
         if (floatingLabelAnimator == null) {
@@ -342,7 +342,7 @@ public class MaterialSpinner extends AppCompatSpinner implements ValueAnimator.A
      * **********************************************************************************
      * UTILITY METHODS
      * **********************************************************************************
-    */
+     */
 
     private int dpToPx(float dp) {
         final DisplayMetrics displayMetrics = getContext().getResources().getDisplayMetrics();
@@ -392,7 +392,7 @@ public class MaterialSpinner extends AppCompatSpinner implements ValueAnimator.A
      * **********************************************************************************
      * DRAWING METHODS
      * **********************************************************************************
-    */
+     */
 
 
     @Override
@@ -454,10 +454,10 @@ public class MaterialSpinner extends AppCompatSpinner implements ValueAnimator.A
             }
             String textToDraw = floatingLabelText != null ? floatingLabelText.toString() : hint.toString();
             if (isRtl) {
-				canvas.drawText(textToDraw, getWidth() - rightLeftSpinnerPadding - textPaint.measureText(textToDraw), startYFloatingLabel, textPaint);
-			} else {
-				canvas.drawText(textToDraw, startX + rightLeftSpinnerPadding, startYFloatingLabel, textPaint);
-			}
+                canvas.drawText(textToDraw, getWidth() - rightLeftSpinnerPadding - textPaint.measureText(textToDraw), startYFloatingLabel, textPaint);
+            } else {
+                canvas.drawText(textToDraw, startX + rightLeftSpinnerPadding, startYFloatingLabel, textPaint);
+            }
         }
 
         drawSelector(canvas, getWidth() - rightLeftSpinnerPadding, getPaddingTop() + dpToPx(8));
@@ -492,7 +492,7 @@ public class MaterialSpinner extends AppCompatSpinner implements ValueAnimator.A
      * **********************************************************************************
      * LISTENER METHODS
      * **********************************************************************************
-    */
+     */
 
     @Override
     public boolean onTouchEvent(MotionEvent event) {
@@ -520,7 +520,7 @@ public class MaterialSpinner extends AppCompatSpinner implements ValueAnimator.A
             public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
 
                 if (hint != null || floatingLabelText != null) {
-                    if (!floatingLabelVisible && position != 0) {
+                    if (!floatingLabelVisible && (position != 0 || hint == null)) {
                         showFloatingLabel();
                     } else if (floatingLabelVisible && (position == 0 && !alwaysShowFloatingLabel)) {
                         hideFloatingLabel();
@@ -556,10 +556,10 @@ public class MaterialSpinner extends AppCompatSpinner implements ValueAnimator.A
 
 
     /*
-    * **********************************************************************************
-    * GETTERS AND SETTERS
-    * **********************************************************************************
-    */
+     * **********************************************************************************
+     * GETTERS AND SETTERS
+     * **********************************************************************************
+     */
 
     public int getBaseColor() {
         return baseColor;
@@ -631,11 +631,11 @@ public class MaterialSpinner extends AppCompatSpinner implements ValueAnimator.A
         return hint;
     }
 
-    public void setHintView(Integer resId){
+    public void setHintView(Integer resId) {
         this.mHintView = resId;
     }
 
-    public void setDripDownHintView(Integer resId){
+    public void setDripDownHintView(Integer resId) {
         this.mDropDownHintView = resId;
     }
 
@@ -783,13 +783,13 @@ public class MaterialSpinner extends AppCompatSpinner implements ValueAnimator.A
     }
 
     public void setRtl() {
-		isRtl = true;
-		invalidate();
-	}
+        isRtl = true;
+        invalidate();
+    }
 
-	public boolean isRtl() {
-		return isRtl;
-	}
+    public boolean isRtl() {
+        return isRtl;
+    }
 
     /**
      * @deprecated {use @link #setPaddingSafe(int, int, int, int)} to keep internal computation OK
@@ -817,7 +817,7 @@ public class MaterialSpinner extends AppCompatSpinner implements ValueAnimator.A
 
     @Override
     public void setAdapter(SpinnerAdapter adapter) {
-        if(adapter instanceof HintAdapter) {
+        if (adapter instanceof HintAdapter) {
             super.setAdapter(adapter);
         } else {
             hintAdapter = new HintAdapter(adapter, getContext());
