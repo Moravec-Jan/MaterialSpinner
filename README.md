@@ -3,19 +3,28 @@
 
 Spinner with Material Design
 
-This library provides you a Spinner with the Material style. You can use it like any regular Spinner. 
-Add floating label text, hint and error messages.
+Slightly modified version of original [ganfra/MaterialSpinner](https://github.com/ganfra/MaterialSpinner)
 
 ## Gradle Dependency
-Use this dependency in your build.gradle file to reference this library in your project
+Step 1. Add the JitPack repository to your build file
 
-```groovy
-compile 'com.github.ganfra:material-spinner:2.0.0'
-```
+Add it in your root build.gradle at the end of repositories:
+
+	allprojects {
+		repositories {
+			...
+			maven { url 'https://jitpack.io' }
+		}
+	}
+Step 2. Add the dependency
+
+	dependencies {
+	        implementation 'com.github.Moravec-Jan:MaterialSpinner:2.0.2'
+	}
 
 If you use other libraries requiring appcompat-v7 like [MaterialEditText](https://github.com/rengwuxian/MaterialEditText/) make sure to exclude them if you have issue at compile time :
 ```groovy
-compile ('com.github.ganfra:material-spinner:2.0.0'){
+implementation ('com.github.Moravec-Jan:MaterialSpinner:2.0.2'){
         exclude group: 'com.android.support', module: 'appcompat-v7'
 }
 ```
