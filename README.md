@@ -3,7 +3,11 @@
 
 Spinner with Material Design
 
-Slightly modified version of original [ganfra/MaterialSpinner](https://github.com/ganfra/MaterialSpinner)
+Slightly modified version of original [ganfra/MaterialSpinner](https://github.com/ganfra/MaterialSpinner). Library also provides own array adapter, which does not have annoying left padding. 
+
+
+## Screenshot
+![spinner](https://user-images.githubusercontent.com/36644697/48788083-5d806c80-ecea-11e8-96a0-f84be9ff14a3.PNG)
 
 ## Gradle Dependency
 Step 1. Add the JitPack repository to your build file
@@ -63,12 +67,12 @@ In the xml :
 ```
 You can set a hint and a floating label text. If no floating label text is provided, the hint will be set instead.
 
-
+  MaterialSpinner.createDefaultSpinner(EnergyVisualizationApp.getInstance(), items);
 Java side, you use it like a regular spinner, setting an adapter to it.
 ```java
  String[] ITEMS = {"Item 1", "Item 2", "Item 3", "Item 4", "Item 5", "Item 6"};
- ArrayAdapter<String> adapter = new ArrayAdapter<String>(this, android.R.layout.simple_spinner_item, ITEMS);
- adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
+
+ ArrayAdapter<String> adapter =  MaterialSpinner.createDefaultSpinner(this, ITEMS);
  spinner = (MaterialSpinner) findViewById(R.id.spinner);
  spinner.setAdapter(adapter);
 ```
