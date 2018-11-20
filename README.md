@@ -3,7 +3,7 @@
 
 Spinner with Material Design
 
-Slightly modified version of original [ganfra/MaterialSpinner](https://github.com/ganfra/MaterialSpinner)
+Slightly modified version of original [ganfra/MaterialSpinner](https://github.com/ganfra/MaterialSpinner). Library also provides own array adapter, which does not have annoying left padding. 
 
 
 ## Screenshot
