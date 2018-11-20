@@ -153,8 +153,9 @@ public class MaterialSpinner extends AppCompatSpinner implements ValueAnimator.A
 
     private void initAttributes(Context context, AttributeSet attrs) {
 
-        TypedArray defaultArray = context.obtainStyledAttributes(new int[]{R.attr.colorControlNormal, R.attr.colorAccent});
+        TypedArray defaultArray = context.obtainStyledAttributes(new int[]{R.attr.colorControlNormal, R.attr.colorAccent,android.R.attr.textColorHint});
         int defaultBaseColor = defaultArray.getColor(0, 0);
+        int defaultHintColor = defaultArray.getColor(2, 0);
         int defaultHighlightColor = defaultArray.getColor(1, 0);
         int defaultErrorColor = context.getResources().getColor(R.color.error_color);
         defaultArray.recycle();
@@ -169,7 +170,7 @@ public class MaterialSpinner extends AppCompatSpinner implements ValueAnimator.A
         hintColor = array.getColor(R.styleable.MaterialSpinner_ms_hintColor, baseColor);
         hintTextSize = array.getDimension(R.styleable.MaterialSpinner_ms_hintTextSize, -1);
         floatingLabelText = array.getString(R.styleable.MaterialSpinner_ms_floatingLabelText);
-        floatingLabelColor = array.getColor(R.styleable.MaterialSpinner_ms_floatingLabelColor, baseColor);
+        floatingLabelColor = array.getColor(R.styleable.MaterialSpinner_ms_floatingLabelColor, defaultHintColor);
         multiline = array.getBoolean(R.styleable.MaterialSpinner_ms_multiline, true);
         minNbErrorLines = array.getInt(R.styleable.MaterialSpinner_ms_nbErrorLines, 1);
         alignLabels = array.getBoolean(R.styleable.MaterialSpinner_ms_alignLabels, true);
