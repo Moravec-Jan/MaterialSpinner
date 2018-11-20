@@ -1,13 +1,10 @@
-# MaterialSpinner
+﻿# MaterialSpinner
 [![Android Arsenal](https://img.shields.io/badge/Android%20Arsenal-MaterialSpinner-brightgreen.svg?style=flat)](http://android-arsenal.com/details/1/1720)
 
 Spinner with Material Design
 
 This library provides you a Spinner with the Material style. You can use it like any regular Spinner. 
 Add floating label text, hint and error messages.
-
-## Screenshots
-![MaterialSpinner](./screenshots/screenshot.gif)
 
 ## Gradle Dependency
 Use this dependency in your build.gradle file to reference this library in your project
