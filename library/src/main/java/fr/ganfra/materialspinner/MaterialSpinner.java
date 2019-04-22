@@ -60,6 +60,7 @@ public class MaterialSpinner extends AppCompatSpinner implements ValueAnimator.A
     private int underlineTopSpacing;
     private int underlineBottomSpacing;
     private int errorLabelSpacing;
+    private float floatingLabelTextSize;
     private int floatingLabelTopSpacing;
     private int floatingLabelBottomSpacing;
     private int floatingLabelInsideSpacing;
@@ -186,6 +187,7 @@ public class MaterialSpinner extends AppCompatSpinner implements ValueAnimator.A
         hint = array.getString(R.styleable.MaterialSpinner_ms_hint);
         hintColor = array.getColor(R.styleable.MaterialSpinner_ms_hintColor, baseColor);
         hintTextSize = array.getDimension(R.styleable.MaterialSpinner_ms_hintTextSize, -1);
+        floatingLabelTextSize = array.getDimension(R.styleable.MaterialSpinner_ms_floatingLabelTextSize, getDefaultFloatingLabelTextSize());
         floatingLabelText = array.getString(R.styleable.MaterialSpinner_ms_floatingLabelText);
         floatingLabelColor = array.getColor(R.styleable.MaterialSpinner_ms_floatingLabelColor, defaultHintColor);
         multiline = array.getBoolean(R.styleable.MaterialSpinner_ms_multiline, true);
@@ -216,6 +218,10 @@ public class MaterialSpinner extends AppCompatSpinner implements ValueAnimator.A
         lastPosition = -1;
         currentNbErrorLines = minNbErrorLines;
 
+    }
+
+    private float getDefaultFloatingLabelTextSize() {
+        return getContext().getResources().getDimension(R.dimen.floating_label_text_size);
     }
 
 
@@ -462,6 +468,7 @@ public class MaterialSpinner extends AppCompatSpinner implements ValueAnimator.A
 
         //Floating Label Drawing
         if ((hint != null || floatingLabelText != null) && enableFloatingLabel) {
+            textPaint.setTextSize(floatingLabelTextSize);
             if (isSelected || hasFocus()) {
                 textPaint.setColor(highlightColor);
             } else {
